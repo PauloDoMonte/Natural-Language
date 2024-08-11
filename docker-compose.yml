@@ -1,0 +1,15 @@
+version: "3.10"
+
+services:
+  chromadb:
+    image: ghcr.io/chroma-core/chroma:latest
+    container_name: chromadb
+    ports:
+      - "8000:8000"
+    volumes:
+      - chroma_data:/chroma/data
+    environment:
+      - CHROMA_DB_PATH=/chroma/data
+
+volumes:
+  chroma_data:
